@@ -1,15 +1,18 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Documentation Starter Kit",
+  "versions": [
+    "v0.5.0"
+  ],
   "logo": {
     "dark": "/logo/dark.png",
     "light": "/logo/light.png"
   },
   "favicon": "/favicon.png",
   "colors": {
-    "primary": "#0069ED",
-    "light": "#4D9CFF",
-    "dark": "#0050B4"
+    "primary": "#5ABF83",
+    "light": "#E3E3E3",
+    "dark": "#131417"
   },
   "topbarLinks": [
     {
@@ -35,17 +38,22 @@
     {
       "name": "Community",
       "icon": "discord",
-      "url": "https://mintlify.com/community"
+      "url": "https://discord.unrealdirective.com"
     }
   ],
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "features"]
+      "pages": [
+        "introduction",
+        "features"
+      ]
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/authentication"]
+      "pages": [
+        "api-reference/authentication"
+      ]
     },
     {
       "group": "Endpoint Examples",
