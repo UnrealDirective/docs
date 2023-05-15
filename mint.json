@@ -9,6 +9,9 @@
     "light": "/logo/light.png"
   },
   "favicon": "/favicon.png",
+  "modeToggle": {
+    "default": "dark"
+  },
   "colors": {
     "primary": "#5ABF83",
     "light": "#E3E3E3",
@@ -47,6 +50,24 @@
       "pages": [
         "introduction",
         "quick-start"
+      ]
+    },
+    {
+      "group": "Toolkit",
+      "pages": [
+        "actor-finder",
+        "asset-consolidator"
+      ]
+    },
+    {
+      "group": "Functionality",
+      "pages": [
+        "editor-actor-subsystem-enhanced",
+        "function-library",
+        "material-functions",
+        "open-level-blueprint",
+        "selection-volume",
+        "customized-details-panels"
       ]
     },
     {
