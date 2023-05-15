@@ -16,13 +16,13 @@
   },
   "topbarLinks": [
     {
-      "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "name": "Unreal Directive",
+      "url": "https://unrealdirective.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Get Started",
-    "url": "https://github.com/mintlify/starter"
+    "url": "https://unrealdirective.com/toolkit"
   },
   "anchors": [
     {
@@ -33,7 +33,7 @@
     {
       "name": "Changelog",
       "icon": "list",
-      "url": "https://mintlify.com"
+      "url": "https://unrealdirective.com"
     },
     {
       "name": "Community",
@@ -66,8 +66,9 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "twitter": "https://twitter.com/unrealdirective",
+    "youtube": "https://www.youtube.com/unrealdirective",
+    "github": "https://github.com/unrealdirective",
+    "linkedin": "https://www.linkedin.com/company/unrealdirective"
   }
 }
