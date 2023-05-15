@@ -62,12 +62,12 @@
     {
       "group": "Features",
       "pages": [
+        "docs/features/customized-details-panels",
         "docs/features/editor-actor-subsystem-enhanced",
         "docs/features/function-library",
         "docs/features/material-functions",
         "docs/features/open-level-blueprint",
-        "docs/features/selection-volume",
-        "docs/features/customized-details-panels"
+        "docs/features/selection-volume"
       ]
     },
     {
