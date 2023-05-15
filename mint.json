@@ -55,19 +55,19 @@
     {
       "group": "Toolkit",
       "pages": [
-        "actor-finder",
-        "asset-consolidator"
+        "docs/toolkit/actor-finder",
+        "docs/toolkit/asset-consolidator"
       ]
     },
     {
-      "group": "Functionality",
+      "group": "Features",
       "pages": [
-        "editor-actor-subsystem-enhanced",
-        "function-library",
-        "material-functions",
-        "open-level-blueprint",
-        "selection-volume",
-        "customized-details-panels"
+        "docs/features/editor-actor-subsystem-enhanced",
+        "docs/features/function-library",
+        "docs/features/material-functions",
+        "docs/features/open-level-blueprint",
+        "docs/features/selection-volume",
+        "docs/features/customized-details-panels"
       ]
     },
     {
