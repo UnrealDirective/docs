@@ -74,9 +74,12 @@
       ]
     },
     {
-      "group": "Unreal Directive Toolkit",
+      "group": "Change Log",
       "pages": [
-        "toolkit/quick-start"
+        "toolkit/changelog/0.5",
+        "toolkit/changelog/0.4",
+        "toolkit/changelog/0.3",
+        "toolkit/changelog/0.2"
       ]
     }
   ],

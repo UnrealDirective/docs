@@ -1,0 +1,30 @@
+---
+title: "v0.4"
+description: "v0.4 Changelog"
+---
+
+# Custom Details Panels
+
+- Added a `Push Materials to Source` option to the Static Mesh Actor’s Materials category
+  - This calls the new `PushOverrideMaterialsToSource` function found in the Editor Actor Subsystem Enhanced
+
+# Editor Actor Subsystem Enhanced
+
+- New Function — Push Override Materials To Source
+  - This new function will copy the materials from a Static Mesh Component over to it’s source Static Mesh.
+- Searching Static Meshes by Name with no text input will now return actors that have Static Mesh Components that do _not_ have a set Static Mesh
+- Fixed crash when search for Static Meshes by Name
+
+# Function Library
+
+- Changed the `EGameFeatureState` structure name to `EUDGameFeatureState` to avoid any potential naming conflicts in the future
+
+# Open Level Blueprint
+
+- Removed unnecessary “Level Actions” log message
+- Fixed silent error on level open
+
+# Misc.
+
+- Fixed the warning messages that occur when opening the `Asset Consolidator` and `Actor Finder` tools
+- Added the `Inter` font

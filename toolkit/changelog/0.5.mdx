@@ -1,0 +1,71 @@
+---
+title: "v0.5"
+description: "v0.5 Changelog"
+---
+
+## Overview
+
+![](/images/toolkit/actor-finder.png)
+
+Version 0.5 of the Unreal Directive Toolkit (UDToolkit) introduces multiple major changes in it’s implementation.
+
+First and foremost, each of the tools are being transitioned from the Editor Utility Widgets to a new UI framework, Qt/PySide6, starting with the Actor Finder. This change was implemented to provide me increased flexibility in the development of these tools while simultaneously ensuring a dependable and highly optimized framework.
+
+Secondly, the Actor Finder has seen multiple improvements with it’s rework. Multiple filters can now be added at once, and the “Find Actors’ option doesn’t automatically select all found actors. In addition, multiple new filters have been added and existing filters have been improved.
+
+Lastly, all of the filters available by the Actor Finder are baseline established in the Editor Actor Subsystem Enhanced module. This allows developers to build their own custom tools without being limited by the toolkit.
+
+As always, I appreciate your feedback and support. If you encounter any issues or have suggestions for future improvements, feel free to let me know in the udtoolkit-feedback Discord channel.
+
+## What’s new
+
+### General
+
+- New editor toolkit applet
+- Toolbar menu adjust to accommodate new toolkit
+
+### Actor Finder
+
+- Functionality overhauled and moved to the toolkit
+- Multiple new Actor Finder filters
+  - Missing Textures
+  - Missing Static Meshes
+  - Missing Material
+  - Empty Actors
+  - Collision Profile
+  - Collision State
+  - Collision Response
+  - Collision Channel
+  - Actor Tag
+
+### Editor Actor Subsystem Enhanced
+
+- New filter functions
+  - Filter Actors by Name
+  - Filter Actors by Class
+  - Filter Actors by Tag
+  - Filter Actors by Material Name
+  - Filter Actors by Material Reference
+  - Filter Actors by Static Mesh Name
+  - Filter Actors by State Mesh Reference
+  - Filter Actors by Tri Count
+  - Filter Actors by Vertex Count
+  - Filter Actors by Bounding Box
+  - Filter Actors by Static Mesh Size
+  - Filter Actors by World Location
+  - Filter Actors by LOD Count
+  - Filter Actors by Nanite State
+  - Filter Actors by Lightmap Resolution
+  - Filter Actors by Mobility
+  - Filter Actors by Collision Channel
+  - Filter Actors by Collision Response
+  - Filter Actors by Collision State
+  - Filter Actors by Texture Name
+  - Filter Actors by Texture Reference
+  - Filter Actors by Collision Profile
+- New utility functions
+  - Focus Actors In Viewport
+
+## What’s been changed
+
+- Multiple filters have been adjusted to improve speed and efficiency
