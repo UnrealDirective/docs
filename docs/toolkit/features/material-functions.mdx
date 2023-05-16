@@ -1,0 +1,67 @@
+---
+title: "Material Functions"
+description: "Custom Material Functions added to help with and simplify material creation workflows."
+---
+
+Custom Material Functions added to help with and simplify material creation workflows.
+
+---
+
+### `MF_CameraSpaceMask`
+
+Establish a sphere mask around the camera's world location. Useful for masking walls between the camera and player, or using the offset to mask around the player character.
+
+| Property         | Description                                                                                                                                   |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| CameraOffset (S) | The offset of the camera from the screen. Match the distance with the characters SpringArm (CameraBoom) to mask around the player's location. |
+| MaskRadius (S)   | How large the mask is. Increase to increase the size, decrease to decrease the size.                                                          |
+| MaskHardness (S) | A 0-100 scale to determine the hardness of the sphere mask. Increase to harden, decrease to soften.                                           |
+| MaskPower (S)    | The strength of the mask falloff. Increase to increase the falloff, decrease to reduce the falloff.                                           |
+
+![](/images/toolkit/MF_CameraSpaceMask.png)
+
+### `MF_LumenQualitySwitchReplace`
+
+A custom expression to separate normal rasterization from Lumen evaluations.
+
+| Property    | Description                       |
+| ----------- | --------------------------------- |
+| Normal (V3) | Used for non-lumen rasterization. |
+| Lumen (V3)  | Used for simple Lumen evaluation. |
+
+![](/images/toolkit/MF_LumenQualitySwitchReplace.png)
+
+### `MF_NormalStrength`
+
+A Material Function to adjust the strength of a normal.
+
+| Property          | Description                                                                                                                                               |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Normal (V3)       | The normal map to adjust the strength of.                                                                                                                 |
+| Strength (s)      | The strength or intensity of the normal map. A value of 1 will be the normal strength of the normal map. A value of 0 will completely flatten the normal. |
+| WorldPosition (b) | Enable to sample against the VertexNormalWS instead of a flat normal color value.                                                                         |
+
+![](/images/toolkit/MF_NormalStrength.png)
+
+### `MF_TextureScaling`
+
+A Material Function pre-setup to easily scale by texture or world scale. The `Scale` property will be multiplied by 100 to keep with the texture scale.
+
+| Property          | Description                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------- |
+| Scale (S)         | The scale multiplier. This is multiplied by 100 when world scale is enabled to keep 1-to-1 scale. |
+| UseWorldSpace (B) | Enable to use world scale. Disable to use texture scale.                                          |
+
+![](/images/toolkit/MF_TextureScaling.png)
+
+### `MF_TextureSpace`
+
+A Material Function pre-setup to switch the texture from World Aligned to Texture Space.
+
+| Property            | Description                                                                  |
+| ------------------- | ---------------------------------------------------------------------------- |
+| TextureObject (T2d) | The texture to scale.                                                        |
+| Scale (S)           | The scale multiplier. This is multiplied by 100 when world scale is enabled. |
+| UseWorldSpace (B)   | Enable to use world scale. Disable to use texture scale.                     |
+
+![](/images/toolkit/MF_TextureSpace.png)
