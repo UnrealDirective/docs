@@ -1,9 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Documentation Starter Kit",
-  "versions": [
-    "v0.5.0"
-  ],
   "logo": {
     "dark": "/logo/dark.png",
     "light": "/logo/light.png"
@@ -29,9 +26,9 @@
   },
   "anchors": [
     {
-      "name": "API Reference",
+      "name": "UDToolkit",
       "icon": "rectangle-terminal",
-      "url": "api-reference"
+      "url": "udtoolkit"
     },
     {
       "name": "Changelog",
@@ -48,8 +45,7 @@
     {
       "group": "Home",
       "pages": [
-        "introduction",
-        "quick-start"
+        "introduction"
       ]
     },
     {
@@ -62,18 +58,18 @@
     {
       "group": "Features",
       "pages": [
-        "docs/features/customized-details-panels",
-        "docs/features/editor-actor-subsystem-enhanced",
-        "docs/features/function-library",
-        "docs/features/material-functions",
-        "docs/features/open-level-blueprint",
-        "docs/features/selection-volume"
+        "docs/toolkit/features/customized-details-panels",
+        "docs/toolkit/features/editor-actor-subsystem-enhanced",
+        "docs/toolkit/features/function-library",
+        "docs/toolkit/features/material-functions",
+        "docs/toolkit/features/open-level-blueprint",
+        "docs/toolkit/features/selection-volume"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Unreal Directive Toolkit",
       "pages": [
-        "api-reference/authentication"
+        "docs/toolkit/quick-start"
       ]
     },
     {
