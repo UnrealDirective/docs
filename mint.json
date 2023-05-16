@@ -76,6 +76,12 @@
         "toolkit/changelog/0.3",
         "toolkit/changelog/0.2"
       ]
+    },
+    {
+      "group": "Content Examples",
+      "pages": [
+        "content-examples/setup"
+      ]
     }
   ],
   "footerSocials": {

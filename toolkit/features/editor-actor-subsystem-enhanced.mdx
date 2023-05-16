@@ -2,3 +2,624 @@
 title: "Editor Actor Subsystem Enhanced"
 description: "The Editor Actor Subsystem has been subclassed an enhanced with additional functionality. All functions listed are available via C++ and Blueprints."
 ---
+
+The build-in Editor Actor Subsystem comes with quite a few helpful functions, however they are not enough. Therefore, I've went ahead and added quite a few more functions to the subsystem. All functions listed are available via C++, Blueprints, and Python.
+
+## Utility
+
+### FocusActorsInViewport
+
+```cpp
+/**
+* Focus actors in viewport.
+* @param Actors The actors to focus.
+* @param bInstant Whether to instantly focus the actors.
+*/
+```
+
+### GetAllLevelClasses
+
+```cpp
+/**
+* Get all unique classes used in the level.
+* @result Classes The list of classes.
+*/
+```
+
+### IsActorWithinBoxBounds
+
+```cpp
+/**
+ * Check if an actor is within the bounds of a box.
+ * @param Actor The actor to check.
+ * @param BoxComponent The box component to check.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1b4d77e4-c2bd-421c-9589-24eaf0a23d17/Untitled.png)
+
+### IsActorWithinSphereBounds
+
+```cpp
+/**
+ * Check if an actor is within the bounds of a Sphere.
+ * @param Actor The actor to check.
+ * @param SphereComponent The sphere component to check.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/23b0697e-3896-4af8-a2d4-05796479a85d/Untitled.png)
+
+### IsActorWithinCapsuleBounds
+
+```cpp
+/**
+ * Check if an actor is within the bounds of a capsule.
+ * @param Actor The actor to check.
+ * @param CapsuleComponent The capsule component to check.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7e2b15a6-24e4-4879-a5c1-d0ef557de835/Untitled.png)
+
+### PushOverrideMaterialsToSource
+
+```cpp
+/**
+* Pushes the overriden materials on the provided Static Mesh Component to the source Static Mesh.
+* @param StaticMeshComponent The Static Mesh Component to push the materials from.
+*/
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/825bc526-3f26-46fe-9e5f-5c6bdef842a3/Untitled.png)
+
+## Filters
+
+### FilterActorsByName
+
+```cpp
+/**
+* Filters the provided actors based on the provided name.
+* @param Actors The list of actors to filter.
+* @param FilteredActors The list of actors that have been filtered.
+* @param ActorName The name to filter by.
+* @param Inclusivity Whether to include or exclude actors with the provided name.
+*/
+```
+
+### FilterActorsByClass
+
+```cpp
+/**
+ * Filter the provided actors based on the provided class.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param ActorClass The class to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided class.
+ */
+```
+
+### FilterActorsByTag
+
+```cpp
+/**
+ * Filter the provided actors based on the provided tags.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param Tag The tag to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided tags.
+ */
+```
+
+### FilterActorsByMaterialName
+
+```cpp
+/**
+ * Filter the provided actors based on the provided material name.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param MaterialName The material name to filter by.
+ * @param MaterialSource The location to check for the material.
+ * @param Inclusivity Whether to include or exclude actors with the provided material name.
+ */
+```
+
+### FilterActorsByMaterial
+
+```cpp
+/**
+ * Filter the provided actors based on the provided material reference.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param Material The material reference to filter by.
+ * @param MaterialSource The location to check for the material.
+ * @param Inclusivity Whether to include or exclude actors with the provided material reference.
+ */
+```
+
+### FilterActorsByStaticMeshName
+
+```cpp
+/**
+ * Filter the provided actors based on the provided static mesh name.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param StaticMeshName The static mesh name to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided static mesh name.
+ */
+```
+
+### FilterActorsByStaticMesh
+
+```cpp
+/**
+ * Filter the provided actors based on the provided static mesh reference.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param StaticMesh The static mesh reference to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided static mesh reference.
+ */
+```
+
+### FilterActorsByVertCount
+
+```cpp
+/**
+ * Filter the provided actors based on the provided vert count range.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param MinVertCount The minimum vert count to filter by.
+ * @param MaxVertCount The maximum vert count to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided vert count range.
+ */
+```
+
+### FilterActorsByTriCount
+
+```cpp
+/**
+ * Filter the provided actors based on the provided triangle count range.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param MinTriCount The minimum triangle count to filter by.
+ * @param MaxTriCount The maximum triangle count to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided triangle count range.
+ */
+```
+
+### FilterActorsByBounds
+
+```cpp
+/**
+ * Filter the provided actors based on the provided actor bounds.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param MinBounds The minimum bounds to filter by.
+ * @param MaxBounds The maximum bounds to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided bounds.
+ */
+```
+
+### FilterActorsByStaticMeshBounds
+
+```cpp
+/**
+ * Filter the provided actors based on the provided static mesh bounds.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param MinBounds The minimum bounds to filter by.
+ * @param MaxBounds The maximum bounds to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided bounds.
+ */
+```
+
+### FilterActorsByWorldLocation
+
+```cpp
+/**
+ * Filter the provided actors based on the provided world location and radius.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param WorldLocation The world location to filter by.
+ * @param Radius The radius to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided world location and radius.
+ */
+```
+
+### FilterActorsByLODCount
+
+```cpp
+/**
+ * Filter the provided actors based on the provided LOD (Level of Detail) count.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param MinLODs The minimum LOD count to filter by.
+ * @param MaxLODs The maximum LOD count to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided LOD count.
+ */
+```
+
+### FilterActorsByNaniteState
+
+```cpp
+/**
+ * Filter the provided actors based on the provided Nanite state.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param bNaniteEnabled Whether to filter by Nanite enabled or disabled.
+ * @param Inclusivity Whether to include or exclude actors with the provided Nanite state.
+ */
+```
+
+### FilterActorsByLightmapResolution
+
+```cpp
+/**
+ * Filter the provided actors based on the provided Lightmap Resolution.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param MinLightmapResolution The minimum lightmap resolution to filter by.
+ * @param MaxLightmapResolution The maximum lightmap resolution to filter by.
+ * @param SearchLocation The location to search from (Actor Override and/or Static Mesh).
+ * @param Inclusivity Whether to include or exclude actors with the provided lightmap resolution.
+ */
+```
+
+### FilterActorsByMobility
+
+```cpp
+/**
+ * Filter the provided actors based on the provided mobility.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param Mobility The mobility to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided mobility.
+ */
+```
+
+### FilterActorsByCollisionChannel
+
+```cpp
+/**
+ * Filter the provided actors based on the provided collision channel.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param CollisionChannel The collision type to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided collision type.
+ */
+```
+
+### FilterActorsByCollisionResponse
+
+```cpp
+/**
+ * Filter the provided actors based on the provided collision response.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param CollisionResponse The collision response to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided collision response.
+ */
+```
+
+### FilterActorsByCollisionEnabled
+
+```cpp
+/**
+ * Filter the provided actors based on the provided collision enabled state.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param CollisionEnabled The collision state to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided collision enabled state.
+ */
+```
+
+### FilterActorsByCollisionProfile
+
+```cpp
+/**
+ * Filter the provided actors based on the provided collision profile.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param CollisionProfile The collision profile to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided collision profile.
+ */
+```
+
+### FilterActorsByTextureName
+
+```cpp
+/**
+ * Filter the provided actors based on the provided Texture Name.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param TextureName The texture name to filter by.
+ * @param Source Chose between searching through material overrides or the base material.
+ * @param Inclusivity Whether to include or exclude actors with the provided texture name.
+ */
+```
+
+### FilterActorsByTexture
+
+```cpp
+/**
+ * Filter the provided actors based on the provided Texture Reference.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param TextureReference The texture reference to filter by.
+ * @param Source Chose between searching through material overrides or the base material.
+ * @param Inclusivity Whether to include or exclude actors with the provided texture reference.
+ */
+```
+
+### FilterEmptyActors
+
+```cpp
+/**
+ * Filters the provided actors based on if the actor is empty or not.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param Inclusivity Whether to include or exclude empty actors.
+ */
+```
+
+### FilterActorsByMissingMaterials
+
+```cpp
+/**
+ * Filter the provided actors based on missing materials.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param Location The location to search for missing materials.
+ * @param Inclusivity Whether to include or exclude actors with missing materials.
+ */
+```
+
+### FilterActorsByMissingStaticMeshes
+
+```cpp
+/**
+ * Filter the provided actors based on missing Static Meshes.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param Inclusivity Whether to include or exclude actors with missing Static Meshes.
+ */
+```
+
+### FilterActorsByMissingTextures
+
+```cpp
+/**
+ * Filter the provided actors based on missing textures.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param Location The location to search for missing textures.
+ * @param Inclusivity Whether to include or exclude actors with missing textures.
+ */
+```
+
+## Deprecated
+
+### `GetActorsByClass`
+
+```cpp
+/**
+ * Returns a list of actors based on the the provided class and options.
+ * @param FoundActors The list of actors that were found.
+ * @param ActorClass The class of the actors to select.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/64302006-d96f-4581-ac71-e59ce9c8f98a/Untitled.png)
+
+### `GetActorsByName`
+
+```cpp
+/**
+* Returns a list of actors based on the the provided asset name and options.
+* @param FoundActors The list of actors that were found.
+* @param ActorName The name of the actors to select.
+* @param SelectionMethod The selection method to use.
+* @param Inclusivity Should the search be inclusive or exclusive?
+*/
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b3f8b952-a32d-408d-a820-3f1261cb8dfc/Untitled.png)
+
+### `GetActorsByMaterial`
+
+```cpp
+/**
+ * Returns a list of actors based on the the provided material reference and options.
+ * Note: This will only return actors that have a static mesh component.
+ * @param Material The reference of the material to search by.
+ * @param FoundActors The list of actors that were found.
+ * @param MaterialSource The source of the material to search by.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ab68a6d4-66f8-4ac1-9d4c-3efaa7987160/Untitled.png)
+
+### `GetActorsByMaterialSoftReference`
+
+```cpp
+/**
+ * Returns a list of actors based on the the provided material reference and options.
+ * Note: This will only return actors that have a static mesh component.
+ * @param Material The reference of the material to search by.
+ * @param FoundActors The list of actors that were found.
+ * @param MaterialSource The source of the material to search by.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d227eda7-2e43-4bb0-aeb0-23c382333c32/Untitled.png)
+
+### `GetActorsByMaterialName`
+
+```cpp
+/**
+ * Returns a list of actors based on the the provided material name and options.
+ * Note: This will only return actors that have a static mesh component.
+ * @param MaterialName The name of the material to search by.
+ * @param FoundActors The list of actors that were found.
+ * @param MaterialSource The source of the material to search by.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0ec70b0-39fa-456e-8e34-df466b9cb75a/Untitled.png)
+
+### `GetActorsByVertexCount`
+
+```cpp
+/**
+* Returns a list of actors based on the the provided vert count and options.
+* Note: This will only return actors that have a Static Mesh Component.
+* @param FoundActors The list of actors that were found.
+* @param From The minimum number of vertices to search for.
+* @param To	The maximum number of vertices to search for.
+* @param SelectionMethod The selection method to use.
+* @param Inclusivity Should the search be inclusive or exclusive?
+*/
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/70a95590-449e-488b-9a1f-9b70d37ea952/Untitled.png)
+
+### `GetActorsByTriCount`
+
+```cpp
+/**
+* Returns a list of actors based on the the provided triangle count and options.
+* Note: This will only return actors that have a Static Mesh Component.
+* @param FoundActors The list of actors that were found.
+* @param From The minimum number of vertices to search for.
+* @param To	The maximum number of vertices to search for.
+* @param SelectionMethod The selection method to use.
+* @param Inclusivity Should the search be inclusive or exclusive?
+*/
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f63de844-46bc-4aac-8b7c-85e35c9cad6f/Untitled.png)
+
+### `GetActorsByBoundingBox`
+
+```cpp
+/**
+ * Returns a list of actors based on the the provided bounding box and options.
+ * @param FoundActors The list of actors that were found.
+ * @param Min The minimum point of the bounding box.
+ * @param Max The maximum point of the bounding box.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1179289c-23b0-4a37-84d2-50883eedcbe4/Untitled.png)
+
+### `GetActorsByMeshSize`
+
+```cpp
+/**
+ * Returns a list of actors based on the provided mesh size and options.
+ * @param FoundActors The list of actors that were found.
+ * @param From The minimum size of the mesh to search for.
+ * @param To The maximum size of the mesh to search for.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/36cc6f39-487e-497c-9c7b-348bd71b305b/Untitled.png)
+
+### `GetActorsByWorldLocation`
+
+```cpp
+/**
+ * Returns a list of actors based on the provided world location, radius, and options.
+ * @param FoundActors The list of actors that were found.
+ * @param WorldLocation The world location to search by.
+ * @param Radius The radius around the provided world location to search by.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6768b40f-b11a-4c6d-9e5a-c1a85eb19eda/Untitled.png)
+
+### `GetActorsByLODCount`
+
+```cpp
+/**
+ * Returns a list of actors based on the provided LOD count and options.
+ * @param FoundActors The list of actors that were found.
+ * @param From The minimum number of LODs to search for.
+ * @param To The maximum number of LODs to search for.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b3186899-bef9-4b4b-bb2a-9ae3936fa13e/Untitled.png)
+
+### `GetActorsByNaniteEnabled`
+
+```cpp
+/**
+ * Returns a list of actors based on if they have Nanite enabled or not.
+ * Note: This will only return actors that have a Static Mesh Component.
+ * @param FoundActors The list of actors that were found.
+ * @param bNaniteEnabled Enable to find Actors with Static Mesh Components that have Nanite enabled. Disable to find Actors with Static Mesh Components that do not have Nanite enabled.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/29e31484-23e7-47cc-84b5-4bca26ffbf86/Untitled.png)
+
+### `GetActorsByLightmapResolution`
+
+```cpp
+/**
+ * Returns a list of actors based on the provided Lightmap Resolution and options.
+ * @param FoundActors The list of actors that were found.
+ * @param From The minimum lightmap resolution to search for.
+ * @param To The maximum lightmap resolution to search for.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7168736-5a59-4f1d-afe6-dabbdba99ca5/Untitled.png)
+
+### `GetActorsBySelectionVolume`
+
+```cpp
+/**
+ * Returns a list of actors based on actor selection volumes and options.
+ * @param FoundActors The list of actors that were found.
+ * @param SelectionVolumes The list of selection volumes to use to select actors. If no selection volumes are provided, then all selections volumes in the level will be used.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6d4d2221-b35d-406c-938f-f472090978fb/Untitled.png)
+
+### `GetActorsByMobility`
+
+```cpp
+/**
+ * Returns a list of actors based on the provided mobility and options.
+ * @param FoundActors The list of actors that were found.
+ * @param SelectionMethod The selection method to use.
+ * @param Inclusivity Should the search be inclusive or exclusive?
+ * @param Mobility The mobility to search for.
+ */
+```
+
+![UnrealEditor_rWoHBHF9Rx.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b9d691f-994c-4e97-ab39-d0ddaf6d9dcf/UnrealEditor_rWoHBHF9Rx.png)

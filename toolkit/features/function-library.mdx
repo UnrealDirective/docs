@@ -2,3 +2,145 @@
 title: "Function Library"
 description: "The function library adds in a plethora of helpful Unreal Engine functionality."
 ---
+
+The function library that comes with the Unreal Directive toolkit adds in quite a few helpful functions, with more function coming each update. These functions are exposed to both C++, Blueprints, and Python. The function library is broken up into categories, which are listed below.
+
+---
+
+## Editor Functions
+
+Functions that enhance the Unreal Engine editor.
+
+### GetChildClasses
+
+```cpp
+/**
+ * Returns a list of actor classes that are derived from the given base class.
+ * This exposes the built-in GetDerivedClasses function to blueprints.
+ * @param BaseClass The base class to get the derived classes for.
+ * @param bRecursive Whether to include derived classes of derived classes.
+ * @param DerivedClasses The list of derived classes.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43f6f3a3-9f18-49ea-a669-814971aed6ff/Untitled.png)
+
+## Game Features
+
+Functions that enhance Game Features inside of Unreal Engine.
+
+### GetGameFeatureFromSubsystem
+
+```cpp
+/**
+* Returns the Game Feature URL from the Game Feature Subsystem based on the given name.
+* @param GameFeatureName - The name of the Game Feature.
+*/
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/101023af-1a0c-4f31-8e1c-a1bb0ff90937/Untitled.png)
+
+### SetGameFeatureState
+
+```cpp
+/**
+* Enable or disable a game feature.
+* @param GameFeatureName - The name of the Game Feature.
+* @param State - The state to set the Game Feature to.
+*/
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/05247108-55c5-4afb-8c4b-61a0c8f3b1d9/Untitled.png)
+
+## String Manipulation
+
+Functions that enhance string manipulation inside of Unreal Engine.
+
+### ContainsLetters
+
+```cpp
+/**
+ * Detect if the provided string contains any letters.
+ * @param String - The string to check.
+ * @returns True if the string contains letters.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3ad00369-a681-45d6-a968-afd1a7e72b3f/Untitled.png)
+
+### ContainsNumbers
+
+```cpp
+/**
+ * Detect if the provided string contains any numbers.
+ * @param String - The string to check.
+ * @returns True if the string contains numbers.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e8977867-3d57-40c0-96b8-b5b460ab8a41/Untitled.png)
+
+### ContainsSpaces
+
+```cpp
+/**
+ * Detect if the provided string contains any spaces.
+ * @param String - The string to check.
+ * @returns True if the string contains spaces.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0551628f-5311-4cd2-b414-785567a76ca1/Untitled.png)
+
+### ContainsSpecialCharacters
+
+```cpp
+/**
+ * Detect if the provided string contains any special characters.
+ * @param String - The string to check.
+ * @returns True if the string contains special characters.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/df87f80e-c434-4a2b-8cc8-2543f26d93b5/Untitled.png)
+
+### FilterCharacters
+
+```cpp
+/**
+ * Filter out characters types from the string.
+ * @param String - The string to filter.
+ * @param bLetters - If true, filter out letters.
+ * @param bNumbers - If true, filter out numbers.
+ * @param bSpecialCharacters - If true, filter out special characters.
+ * @param bSpaces - If true, filter out spaces.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7303b796-aa08-4fbb-9a02-674a224388f7/Untitled.png)
+
+### SortStringArray
+
+```cpp
+/**
+* Sort a string array alphabetically.
+* @param StringArray - The string array to sort.
+*/
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/abfd8ba7-39ca-4f0f-8548-1b5f6f1becb4/Untitled.png)
+
+## Text Manipulation
+
+Functions that enhance text manipulation inside of Unreal Engine.
+
+### IsNotEmpty
+
+```cpp
+/**
+ * Check if the provided text is not empty.
+ * @param Text - The text to check.
+ */
+```
+
+![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d61aff9e-9d03-4631-9294-9c244833820f/Untitled.png)
