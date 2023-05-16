@@ -26,9 +26,9 @@
   },
   "anchors": [
     {
-      "name": "UDToolkit",
+      "name": "Toolkit",
       "icon": "rectangle-terminal",
-      "url": "udtoolkit"
+      "url": "toolkit"
     },
     {
       "name": "Changelog",
@@ -51,25 +51,25 @@
     {
       "group": "Toolkit",
       "pages": [
-        "docs/toolkit/actor-finder",
-        "docs/toolkit/asset-consolidator"
+        "toolkit/actor-finder",
+        "toolkit/asset-consolidator"
       ]
     },
     {
       "group": "Features",
       "pages": [
-        "docs/toolkit/features/customized-details-panels",
-        "docs/toolkit/features/editor-actor-subsystem-enhanced",
-        "docs/toolkit/features/function-library",
-        "docs/toolkit/features/material-functions",
-        "docs/toolkit/features/open-level-blueprint",
-        "docs/toolkit/features/selection-volume"
+        "toolkit/features/customized-details-panels",
+        "toolkit/features/editor-actor-subsystem-enhanced",
+        "toolkit/features/function-library",
+        "toolkit/features/material-functions",
+        "toolkit/features/open-level-blueprint",
+        "toolkit/features/selection-volume"
       ]
     },
     {
       "group": "Unreal Directive Toolkit",
       "pages": [
-        "docs/toolkit/quick-start"
+        "toolkit/quick-start"
       ]
     },
     {
