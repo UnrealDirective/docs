@@ -1,30 +1,34 @@
 ---
 title: "Editor Actor Subsystem Enhanced"
-description: "The Editor Actor Subsystem has been subclassed an enhanced with additional functionality. All functions listed are available via C++ and Blueprints."
+description: "The Editor Actor Subsystem has been subclassed and enhanced with additional functionality. All functions listed are available via C++, Blueprints, and Python."
 ---
-
-The build-in Editor Actor Subsystem comes with quite a few helpful functions, however they are not enough. Therefore, I've went ahead and added quite a few more functions to the subsystem. All functions listed are available via C++, Blueprints, and Python.
 
 ## Utility
 
-### FocusActorsInViewport
+### Focus Actors In Viewport
 
 ```cpp
 /**
-* Focus actors in viewport.
-* @param Actors The actors to focus.
-* @param bInstant Whether to instantly focus the actors.
-*/
+ * Focus actors in viewport.
+ * @param Actors The actors to focus.
+ * @param bInstant Whether to instantly focus the actors.
+ */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Editor")
+void FocusActorsInViewport(const TArray<AActor*> Actors, bool bInstant = false);
 ```
 
 ### GetAllLevelClasses
 
 ```cpp
 /**
-* Get all unique classes used in the level.
-* @result Classes The list of classes.
-*/
+ * Get all unique classes used in the level.
+ * @result Classes The list of classes.
+ */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Editor")
+TArray<UClass*> GetAllLevelClasses();
 ```
+
+## Bound Calculation
 
 ### IsActorWithinBoxBounds
 
@@ -34,9 +38,9 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Actor The actor to check.
  * @param BoxComponent The box component to check.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit")
+bool IsActorWithinBoxBounds(AActor* Actor, UBoxComponent* BoxComponent) const;
 ```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1b4d77e4-c2bd-421c-9589-24eaf0a23d17/Untitled.png)
 
 ### IsActorWithinSphereBounds
 
@@ -46,9 +50,9 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Actor The actor to check.
  * @param SphereComponent The sphere component to check.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit")
+bool IsActorWithinSphereBounds(AActor* Actor, USphereComponent* SphereComponent) const;
 ```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/23b0697e-3896-4af8-a2d4-05796479a85d/Untitled.png)
 
 ### IsActorWithinCapsuleBounds
 
@@ -58,20 +62,9 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Actor The actor to check.
  * @param CapsuleComponent The capsule component to check.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit")
+bool IsActorWithinCapsuleBounds(AActor* Actor, UCapsuleComponent* CapsuleComponent) const;
 ```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7e2b15a6-24e4-4879-a5c1-d0ef557de835/Untitled.png)
-
-### PushOverrideMaterialsToSource
-
-```cpp
-/**
-* Pushes the overriden materials on the provided Static Mesh Component to the source Static Mesh.
-* @param StaticMeshComponent The Static Mesh Component to push the materials from.
-*/
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/825bc526-3f26-46fe-9e5f-5c6bdef842a3/Untitled.png)
 
 ## Filters
 
@@ -79,12 +72,14 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
 
 ```cpp
 /**
-* Filters the provided actors based on the provided name.
-* @param Actors The list of actors to filter.
-* @param FilteredActors The list of actors that have been filtered.
-* @param ActorName The name to filter by.
-* @param Inclusivity Whether to include or exclude actors with the provided name.
-*/
+ * Filters the provided actors based on the provided name.
+ * @param Actors The list of actors to filter.
+ * @param FilteredActors The list of actors that have been filtered.
+ * @param ActorName The name to filter by.
+ * @param Inclusivity Whether to include or exclude actors with the provided name.
+ */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByName(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const FString& ActorName, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByClass
@@ -97,6 +92,9 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param ActorClass The class to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided class.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByClass(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, TSubclassOf<AActor> ActorClass, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
+
 ```
 
 ### FilterActorsByTag
@@ -109,6 +107,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Tag The tag to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided tags.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByTag(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const FName Tag, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByMaterialName
@@ -122,6 +122,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param MaterialSource The location to check for the material.
  * @param Inclusivity Whether to include or exclude actors with the provided material name.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByMaterialName(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const FString& MaterialName, EUDSearchLocation MaterialSource, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByMaterial
@@ -135,6 +137,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param MaterialSource The location to check for the material.
  * @param Inclusivity Whether to include or exclude actors with the provided material reference.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByMaterial(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const TSoftObjectPtr<UMaterialInterface>& Material, EUDSearchLocation MaterialSource, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByStaticMeshName
@@ -147,6 +151,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param StaticMeshName The static mesh name to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided static mesh name.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByStaticMeshName(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const FString& StaticMeshName, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByStaticMesh
@@ -159,6 +165,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param StaticMesh The static mesh reference to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided static mesh reference.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByStaticMesh(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const TSoftObjectPtr<UStaticMesh>& StaticMesh, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByVertCount
@@ -172,6 +180,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param MaxVertCount The maximum vert count to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided vert count range.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByVertCount(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, int32 MinVertCount, int32 MaxVertCount, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByTriCount
@@ -185,6 +195,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param MaxTriCount The maximum triangle count to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided triangle count range.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByTriCount(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, int32 MinTriCount, int32 MaxTriCount, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByBounds
@@ -198,6 +210,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param MaxBounds The maximum bounds to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided bounds.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByBounds(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const FVector& MinBounds, const FVector& MaxBounds, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByStaticMeshBounds
@@ -211,6 +225,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param MaxBounds The maximum bounds to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided bounds.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByStaticMeshBounds(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const FVector& MinBounds, const FVector& MaxBounds, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByWorldLocation
@@ -224,6 +240,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Radius The radius to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided world location and radius.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByWorldLocation(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, const FVector& WorldLocation, float Radius, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByLODCount
@@ -237,6 +255,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param MaxLODs The maximum LOD count to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided LOD count.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByLODCount(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, int32 MinLODs, int32 MaxLODs, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByNaniteState
@@ -249,6 +269,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param bNaniteEnabled Whether to filter by Nanite enabled or disabled.
  * @param Inclusivity Whether to include or exclude actors with the provided Nanite state.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByNaniteState(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, bool bNaniteEnabled, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByLightmapResolution
@@ -263,6 +285,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param SearchLocation The location to search from (Actor Override and/or Static Mesh).
  * @param Inclusivity Whether to include or exclude actors with the provided lightmap resolution.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByLightmapResolution(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, int32 MinLightmapResolution, int32 MaxLightmapResolution, EUDSearchLocation SearchLocation, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByMobility
@@ -275,6 +299,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Mobility The mobility to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided mobility.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByMobility(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, EComponentMobility::Type Mobility, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByCollisionChannel
@@ -287,6 +313,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param CollisionChannel The collision type to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided collision type.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByCollisionChannel(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, ECollisionChannel CollisionChannel, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByCollisionResponse
@@ -299,6 +327,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param CollisionResponse The collision response to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided collision response.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByCollisionResponse(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, ECollisionChannel CollisionChannel, ECollisionResponse CollisionResponse, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByCollisionEnabled
@@ -311,6 +341,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param CollisionEnabled The collision state to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided collision enabled state.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByCollisionEnabled(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, ECollisionEnabled::Type CollisionEnabled, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByCollisionProfile
@@ -323,6 +355,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param CollisionProfile The collision profile to filter by.
  * @param Inclusivity Whether to include or exclude actors with the provided collision profile.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByCollisionProfile(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, FName CollisionProfile, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByTextureName
@@ -336,6 +370,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Source Chose between searching through material overrides or the base material.
  * @param Inclusivity Whether to include or exclude actors with the provided texture name.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByTextureName(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, FString TextureName, EUDSearchLocation Source, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByTexture
@@ -349,6 +385,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Source Chose between searching through material overrides or the base material.
  * @param Inclusivity Whether to include or exclude actors with the provided texture reference.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByTexture(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, TSoftObjectPtr<UTexture2D> TextureReference, EUDSearchLocation Source, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterEmptyActors
@@ -360,6 +398,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param FilteredActors The list of actors that have been filtered.
  * @param Inclusivity Whether to include or exclude empty actors.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterEmptyActors(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByMissingMaterials
@@ -372,6 +412,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Location The location to search for missing materials.
  * @param Inclusivity Whether to include or exclude actors with missing materials.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByMissingMaterials(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, EUDSearchLocation Location, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByMissingStaticMeshes
@@ -383,6 +425,8 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param FilteredActors The list of actors that have been filtered.
  * @param Inclusivity Whether to include or exclude actors with missing Static Meshes.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByMissingStaticMeshes(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
 ### FilterActorsByMissingTextures
@@ -395,231 +439,19 @@ The build-in Editor Actor Subsystem comes with quite a few helpful functions, ho
  * @param Location The location to search for missing textures.
  * @param Inclusivity Whether to include or exclude actors with missing textures.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Filters|Actor")
+void FilterActorsByMissingTextures(const TArray<AActor*>& Actors, TArray<AActor*>& FilteredActors, EUDSearchLocation Location, EUDInclusivity Inclusivity = EUDInclusivity::Include) const;
 ```
 
-## Deprecated
+## Static Meshes
 
-### `GetActorsByClass`
+### PushOverrideMaterialsToSource
 
 ```cpp
 /**
- * Returns a list of actors based on the the provided class and options.
- * @param FoundActors The list of actors that were found.
- * @param ActorClass The class of the actors to select.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
+ * Pushes the overriden materials on the provided Static Mesh Component to the source Static Mesh.
+ * @param StaticMeshComponent The Static Mesh Component to push the materials from.
  */
+UFUNCTION(BlueprintCallable, Category = "Unreal Directive Toolkit|Static Mesh")
+void PushOverrideMaterialsToSource(UStaticMeshComponent* StaticMeshComponent);
 ```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/64302006-d96f-4581-ac71-e59ce9c8f98a/Untitled.png)
-
-### `GetActorsByName`
-
-```cpp
-/**
-* Returns a list of actors based on the the provided asset name and options.
-* @param FoundActors The list of actors that were found.
-* @param ActorName The name of the actors to select.
-* @param SelectionMethod The selection method to use.
-* @param Inclusivity Should the search be inclusive or exclusive?
-*/
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b3f8b952-a32d-408d-a820-3f1261cb8dfc/Untitled.png)
-
-### `GetActorsByMaterial`
-
-```cpp
-/**
- * Returns a list of actors based on the the provided material reference and options.
- * Note: This will only return actors that have a static mesh component.
- * @param Material The reference of the material to search by.
- * @param FoundActors The list of actors that were found.
- * @param MaterialSource The source of the material to search by.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ab68a6d4-66f8-4ac1-9d4c-3efaa7987160/Untitled.png)
-
-### `GetActorsByMaterialSoftReference`
-
-```cpp
-/**
- * Returns a list of actors based on the the provided material reference and options.
- * Note: This will only return actors that have a static mesh component.
- * @param Material The reference of the material to search by.
- * @param FoundActors The list of actors that were found.
- * @param MaterialSource The source of the material to search by.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d227eda7-2e43-4bb0-aeb0-23c382333c32/Untitled.png)
-
-### `GetActorsByMaterialName`
-
-```cpp
-/**
- * Returns a list of actors based on the the provided material name and options.
- * Note: This will only return actors that have a static mesh component.
- * @param MaterialName The name of the material to search by.
- * @param FoundActors The list of actors that were found.
- * @param MaterialSource The source of the material to search by.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0ec70b0-39fa-456e-8e34-df466b9cb75a/Untitled.png)
-
-### `GetActorsByVertexCount`
-
-```cpp
-/**
-* Returns a list of actors based on the the provided vert count and options.
-* Note: This will only return actors that have a Static Mesh Component.
-* @param FoundActors The list of actors that were found.
-* @param From The minimum number of vertices to search for.
-* @param To	The maximum number of vertices to search for.
-* @param SelectionMethod The selection method to use.
-* @param Inclusivity Should the search be inclusive or exclusive?
-*/
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/70a95590-449e-488b-9a1f-9b70d37ea952/Untitled.png)
-
-### `GetActorsByTriCount`
-
-```cpp
-/**
-* Returns a list of actors based on the the provided triangle count and options.
-* Note: This will only return actors that have a Static Mesh Component.
-* @param FoundActors The list of actors that were found.
-* @param From The minimum number of vertices to search for.
-* @param To	The maximum number of vertices to search for.
-* @param SelectionMethod The selection method to use.
-* @param Inclusivity Should the search be inclusive or exclusive?
-*/
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f63de844-46bc-4aac-8b7c-85e35c9cad6f/Untitled.png)
-
-### `GetActorsByBoundingBox`
-
-```cpp
-/**
- * Returns a list of actors based on the the provided bounding box and options.
- * @param FoundActors The list of actors that were found.
- * @param Min The minimum point of the bounding box.
- * @param Max The maximum point of the bounding box.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1179289c-23b0-4a37-84d2-50883eedcbe4/Untitled.png)
-
-### `GetActorsByMeshSize`
-
-```cpp
-/**
- * Returns a list of actors based on the provided mesh size and options.
- * @param FoundActors The list of actors that were found.
- * @param From The minimum size of the mesh to search for.
- * @param To The maximum size of the mesh to search for.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/36cc6f39-487e-497c-9c7b-348bd71b305b/Untitled.png)
-
-### `GetActorsByWorldLocation`
-
-```cpp
-/**
- * Returns a list of actors based on the provided world location, radius, and options.
- * @param FoundActors The list of actors that were found.
- * @param WorldLocation The world location to search by.
- * @param Radius The radius around the provided world location to search by.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6768b40f-b11a-4c6d-9e5a-c1a85eb19eda/Untitled.png)
-
-### `GetActorsByLODCount`
-
-```cpp
-/**
- * Returns a list of actors based on the provided LOD count and options.
- * @param FoundActors The list of actors that were found.
- * @param From The minimum number of LODs to search for.
- * @param To The maximum number of LODs to search for.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b3186899-bef9-4b4b-bb2a-9ae3936fa13e/Untitled.png)
-
-### `GetActorsByNaniteEnabled`
-
-```cpp
-/**
- * Returns a list of actors based on if they have Nanite enabled or not.
- * Note: This will only return actors that have a Static Mesh Component.
- * @param FoundActors The list of actors that were found.
- * @param bNaniteEnabled Enable to find Actors with Static Mesh Components that have Nanite enabled. Disable to find Actors with Static Mesh Components that do not have Nanite enabled.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/29e31484-23e7-47cc-84b5-4bca26ffbf86/Untitled.png)
-
-### `GetActorsByLightmapResolution`
-
-```cpp
-/**
- * Returns a list of actors based on the provided Lightmap Resolution and options.
- * @param FoundActors The list of actors that were found.
- * @param From The minimum lightmap resolution to search for.
- * @param To The maximum lightmap resolution to search for.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f7168736-5a59-4f1d-afe6-dabbdba99ca5/Untitled.png)
-
-### `GetActorsBySelectionVolume`
-
-```cpp
-/**
- * Returns a list of actors based on actor selection volumes and options.
- * @param FoundActors The list of actors that were found.
- * @param SelectionVolumes The list of selection volumes to use to select actors. If no selection volumes are provided, then all selections volumes in the level will be used.
- * @param Inclusivity Should the search be inclusive or exclusive?
- */
-```
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6d4d2221-b35d-406c-938f-f472090978fb/Untitled.png)
-
-### `GetActorsByMobility`
-
-```cpp
-/**
- * Returns a list of actors based on the provided mobility and options.
- * @param FoundActors The list of actors that were found.
- * @param SelectionMethod The selection method to use.
- * @param Inclusivity Should the search be inclusive or exclusive?
- * @param Mobility The mobility to search for.
- */
-```
-
-![UnrealEditor_rWoHBHF9Rx.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4b9d691f-994c-4e97-ab39-d0ddaf6d9dcf/UnrealEditor_rWoHBHF9Rx.png)
